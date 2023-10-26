@@ -33,61 +33,79 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <h2>
-    This is a test form with a <a href="https://make.com" target="_blank">make.com</a> as backend submit data manager.
-  </h2>
+  <div class="form-description">
+    <h2>
+      This is a test form with a <a href="https://make.com" target="_blank">make.com</a> as backend submit data manager.
+    </h2>
 
-  <p>
-    How to use:
-  </p>
-
-  <ul>
-    <li>Open this
-      <a :href="GOOGLE_SHEET_URL" target="_blank">
-        Google Sheet Link
-      </a>
-    </li>
-    <li>Fill form and check your Google Sheet Link</li>
-  </ul>
-
-  <!-- From -->
-  <form ref="form" v-if="!isSubmitted" :action="WEBHOOK" method="post">
-    <div class="fieldset">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-    <div class="fieldset">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    <div class="fieldset">
-      <label for="phone">phone:</label>
-      <input type="tel" id="phone" name="phone" required>
-    </div>
-    <div class="fieldset">
-      <label for="industry">Sector:</label>
-      <select id="industry" name="industry">
-        <option value="public">Public</option>
-        <option value="private">Private</option>
-      </select>
-    </div>
-    <div class="fieldset">
-      <button type="submit" @click="handleSubmit">Send it!</button>
-    </div>
-  </form>
-
-  <div v-else class="response-box">
     <p>
-      Wait a second and check this <a :href="GOOGLE_SHEET_URL" target="_blank">Google Sheet Link</a> again with your submitted data.
+      How to use:
     </p>
 
-    <button @click="handleSubmit">Try it again.</button>
-  
+    <ul>
+      <li>Open this
+        <a :href="GOOGLE_SHEET_URL" target="_blank">
+          Google Sheet Link
+        </a>
+      </li>
+      <li>Fill form and check your Google Sheet Link</li>
+    </ul>
+  </div>
+
+  <!-- From -->
+  <div class="form-container">
+    <form ref="form" v-if="!isSubmitted" :action="WEBHOOK" method="post">
+      <div class="fieldset">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="fieldset">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="fieldset">
+        <label for="phone">phone:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      <div class="fieldset">
+        <label for="industry">Sector:</label>
+        <select id="industry" name="industry">
+          <option value="public">Public</option>
+          <option value="private">Private</option>
+        </select>
+      </div>
+      <div class="fieldset">
+        <button type="submit" @click="handleSubmit">Send it!</button>
+      </div>
+    </form>
+
+    <div v-else class="response-box">
+      <p>
+        Wait a second and check this <a :href="GOOGLE_SHEET_URL" target="_blank">Google Sheet Link</a> again with your submitted data.
+      </p>
+
+      <button @click="handleSubmit">Try it again.</button>
+    
+    </div>
   </div>
 
 </template>
 
 <style scoped>
+
+.form-description {
+  margin: 50px 0px;
+}
+
+.form-container {
+  padding: 5% 50px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  border: 2px white solid;
+}
+
 h1, h2 {
   margin-bottom: 30px;
 }

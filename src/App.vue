@@ -8,7 +8,7 @@ import FormInput from './components/FormInput.vue'
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="Low-Code Form Test" />
     </div>
   </header>
 
@@ -26,6 +26,7 @@ header {
   display: block;
   margin: 0 auto 2rem;
 }
+
 
 @media (min-width: 1024px) {
   header {
